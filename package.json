@@ -1,0 +1,25 @@
+{
+  "name": "nonogram",
+  "version": "1.0.0",
+  "description": "Algorithm for parsing and solving colored nonograms from http://www.nonograms.ru",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+  },
+  "pre-commit": [
+    "precommit-msg",
+    "lint"
+  ],
+  "keywords": [
+    "nonogram"
+  ],
+  "author": "dmitriy.penetrator@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-gemini-testing": "^2.7.0",
+    "pre-commit": "^1.2.2"
+  }
+}
