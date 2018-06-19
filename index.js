@@ -4,6 +4,8 @@ const extractor = require('./lib/extractor');
 const Solver = require('./lib/solver');
 
 const url = 'http://www.nonograms.ru/nonograms2/i/18930';
+// const url = 'http://www.nonograms.ru/nonograms2/i/18890';
+
 extractor(url)
     .then((nonogram) => {
         const solver = new Solver(nonogram);
