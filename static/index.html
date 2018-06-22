@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nonogram solver</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+<h1 class="text title">Решатель цветных нонограм</h1>
+
+<form class="data" id="data" autocomplete="off">
+    <label class="text data__label" for="input">Укажите ссылку или номер кроссворда:</label>
+    <input class="data__input" type="text" id="input" placeholder="Например, http://www.nonograms.ru/nonograms2/i/18930 или просто 18930">
+    <input type="submit" class="data__search" value="">
+</form>
+
+<div class="field">
+    <div class="field__container" id="field"></div>
+</div>
+
+</body>
+
+</html>
