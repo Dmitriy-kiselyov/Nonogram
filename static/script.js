@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             switch (answer.status) {
                 case 'ok':
-                    drawNonogram(answer.result);
+                    onSuccess(answer.result);
                     break;
                 case 'error':
                     onFail(answer.message);
@@ -28,6 +28,33 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         xhr.send();
+    }
+
+    function onSuccess(nonogram) {
+        hideError();
+        drawNonogram(nonogram);
+    }
+
+    function onFail(message) {
+        var field = document.getElementById("field");
+        field.innerHTML = "";
+
+        showError(message);
+    }
+
+    function onError() {
+        console.log('ERROR');
+    }
+
+    function hideError() {
+        var error = document.getElementById('field-error');
+        error.style.display = 'none';
+    }
+
+    function showError(message) {
+        var error = document.getElementById('field-error');
+        error.innerText = message;
+        error.style.display = 'block';
     }
 
     function drawNonogram(nonogram) {
@@ -63,13 +90,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
             field.appendChild(row);
         });
-    }
-
-    function onFail(message) {
-        console.log('FAIL', message);
-    }
-
-    function onError() {
-        console.log('ERROR');
     }
 });
