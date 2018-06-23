@@ -1,3 +1,8 @@
+body {
+    width: 800px;
+    margin: auto;
+}
+
 .text {
     font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
 }
@@ -5,11 +10,11 @@
 .title {
     font-size: 48px;
     text-align: center;
+    color: darkred;
 }
 
 .data {
     display: flex;
-    height: 24px;
 }
 
 .data__label {
@@ -18,23 +23,35 @@
     font-size: 16px;
 }
 
-.data__input {
+.data__input-container {
+    position: relative;
     flex-grow: 1;
+}
+
+.data__input {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
 
     font-size: 13px;
-    padding: 2px;
+    padding: 5px 24px 5px 5px;
 }
 
 .data__search {
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 27px;
+    height: 27px;
 
     border: none;
     outline: none;
 
     background: url(img/magnifier-tool.svg) no-repeat center;
-    background-size: 20px 20px;
+    background-size: 18px 18px;
     cursor: pointer;
 }
 
