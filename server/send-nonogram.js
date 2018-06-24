@@ -13,7 +13,7 @@ module.exports = (url, res) => {
 
             res.send({status: 'ok', result: nonogramToObject(nonogram)});
         }).catch(() => {
-            res.send({status: 'error', message: 'Неверный адрес ссылки'});
+            res.send({status: 'error', message: 'Неверный номер кроссворда или адрес ссылки'});
         });
 };
 

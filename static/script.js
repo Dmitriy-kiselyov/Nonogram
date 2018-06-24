@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         var url = document.getElementById('input').value;
 
+        hideError();
+        clearNonogram();
         makeAjaxRequest(url);
     };
 
@@ -31,19 +33,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function onSuccess(nonogram) {
-        hideError();
         drawNonogram(nonogram);
     }
 
     function onFail(message) {
-        var field = document.getElementById("field");
-        field.innerHTML = "";
-
         showError(message);
     }
 
     function onError() {
-        console.log('ERROR');
+        showError('Ошибка сервера');
     }
 
     function hideError() {
@@ -57,6 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
         error.style.display = 'block';
     }
 
+    function clearNonogram() {
+        var field = document.getElementById("field");
+        field.innerHTML = "";
+    }
+
     function drawNonogram(nonogram) {
         function newDiv(className, background) {
             var div = document.createElement("div");
@@ -67,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         var field = document.getElementById("field");
-        field.innerHTML = "";
 
         nonogram.field.forEach(function (line) {
             var row = newDiv('field__row');
