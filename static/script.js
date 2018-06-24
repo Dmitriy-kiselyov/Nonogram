@@ -61,12 +61,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function drawNonogram(nonogram) {
-        function newDiv(className, background) {
+        function newDiv(className) {
             var div = document.createElement("div");
             div.className = className;
-            if (background)
-                div.style.backgroundColor = background;
             return div;
+        }
+
+        function newCell(background) {
+            var cell = newDiv('field__cell');
+            if (background) {
+                cell.style.backgroundColor = background;
+            } else {
+                cell.classList.add('field__empty-cell');
+            }
+
+            var size = Math.min(Math.floor(800 / nonogram.width), 10);
+            cell.style.width = size + 'px';
+            cell.style.height = size + 'px';
+
+            return cell;
         }
 
         var field = document.getElementById("field");
@@ -80,13 +93,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 switch (ch) {
                     case '.':
-                        row.appendChild(newDiv("field__cell", "white"));
+                        row.appendChild(newCell('white'));
                         break;
                     case '?':
-                        row.appendChild(newDiv("field__cell field__empty"));
+                        row.appendChild(newCell());
                         break;
                     default:
-                        row.appendChild(newDiv("field__cell", nonogram.colors[ch.charCodeAt(0) - 97]));
+                        row.appendChild(newCell(nonogram.colors[ch.charCodeAt(0) - 97]));
                 }
             });
 

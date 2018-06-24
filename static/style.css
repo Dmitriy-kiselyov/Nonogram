@@ -80,12 +80,10 @@ body {
     display: inline-block;
     box-sizing: border-box;
     line-height: 0;
-
-    height: 10px;
-    width: 10px;
+    vertical-align: top;
 }
 
-.field__empty {
+.field__empty-cell {
     box-sizing: border-box;
     border: 1px solid black;
 }
