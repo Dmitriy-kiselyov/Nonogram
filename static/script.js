@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         hideError();
         clearNonogram();
+        showLoader();
         makeAjaxRequest(url);
     };
 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         xhr.onerror = onError;
         xhr.onload = function () {
+            hideLoader();
             var answer = JSON.parse(xhr.responseText);
 
             switch (answer.status) {
@@ -32,6 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send();
     }
 
+    function showLoader() {
+        var loader = document.getElementById('loader');
+        loader.style.display = 'block';
+    }
+
+    function hideLoader() {
+        var loader = document.getElementById('loader');
+        loader.style.display = 'none';
+    }
+
     function onSuccess(nonogram) {
         drawNonogram(nonogram);
     }
@@ -41,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function onError() {
+        hideLoader();
         showError('Ошибка сервера');
     }
 

@@ -87,3 +87,53 @@ body {
     box-sizing: border-box;
     border: 1px solid black;
 }
+
+.loader {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.loader__dot-container {
+    display: inline-block;
+    text-align: center;
+
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.loader__dot {
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 30px;
+    height: 30px;
+    background: #999;
+    border-radius: 50%;
+}
+
+.loader__dot-container:nth-child(1) .loader__dot {
+    animation: blink .4s infinite alternate linear;
+}
+
+.loader__dot-container:nth-child(2) .loader__dot {
+    animation: blink .4s infinite alternate linear .2s;
+}
+
+.loader__dot-container:nth-child(3) .loader__dot {
+    animation: blink .4s infinite alternate linear .4s;
+}
+
+@keyframes blink {
+    0% {
+        background: #999;
+        width: 30px;
+        height: 30px;
+    }
+
+    100% {
+        background: #ddd;
+        width: 10px;
+        height: 10px;
+    }
+}
