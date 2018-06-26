@@ -11,6 +11,16 @@ body {
     font-size: 48px;
     text-align: center;
     color: darkred;
+
+    margin-bottom: 10px;
+}
+
+.sub-title {
+    font-size: 36px;
+    text-align: center;
+    color: darkred;
+
+    margin-top: 10px;
 }
 
 .data {
